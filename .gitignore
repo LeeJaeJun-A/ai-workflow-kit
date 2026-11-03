@@ -1,0 +1,19 @@
+# Helper only: this does not prevent uploads or remove previously tracked files.
+.local/
+local-output/
+logs/
+results/
+.env
+.env.*
+*.log
+*.jsonl
+*.xlsx
+*.xls
+*.csv
+*.tsv
+*.parquet
+*.sqlite
+*.db
+*.zip
+.DS_Store
+__pycache__/
