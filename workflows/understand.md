@@ -1,20 +1,20 @@
-# 이해: 실제 코드에 대한 자기 설명
+# Understand: Explain the Actual Code
 
-AI 사용이 허용된 개발·연습 단계에서만 진행한다. AI 금지 답변 단계에서는 수행하지 않는다.
-실제 코드와 실제 테스트를 먼저 확인하고 아래 절차를 따른다.
+Use only during development/practice stages where AI is permitted, not answer stages that prohibit AI.
+Follow RULES.md, including its language policy. Inspect actual code and tests first.
 
-1. 데이터 처리, 핵심 알고리즘, 예외 처리, UI 연결 중 중요한 구현 하나를 고른다.
-2. 실제 파일/함수와 작은 입력의 처리 흐름을 짧게 설명한다.
-3. 아래 유형 중 하나의 질문만 한다. 정답이나 모범 답변을 먼저 보여주지 않는다.
-   - 왜 이 데이터를 이런 방식으로 읽거나 연결했는가?
-   - 이 처리가 빠지면 어떤 입력에서 무슨 문제가 생기는가?
-   - 선택한 방법은 무엇을 보장하며 무엇을 보장하지 않는가?
-   - 결과가 맞다는 근거와 확인하지 못한 범위는 무엇인가?
-   - AI 제안 중 사람이 실제로 선택하거나 바꾼 부분은 무엇인가?
-4. 사용자 답변을 기다린다.
-5. 현재 코드와 실행 기록에 근거해 맞는 부분과 틀린/빠진 부분을 구분한다.
-6. 틀린 경우 작은 반례로 설명하고 사용자가 다시 자신의 말로 답하게 한다.
+1. Choose one important implementation: data processing, core algorithm, error handling, or UI integration.
+2. Briefly explain actual files/functions and the processing flow for a small input.
+3. Ask just one question of a type below. Do not reveal the answer or a model response first.
+   - Why is this data read or joined this way?
+   - Without this step, which input would fail and how?
+   - What does the chosen method guarantee, and what does it not guarantee?
+   - What evidence supports correctness, and what remains unchecked?
+   - Which AI suggestions did the human actually select or change?
+4. Wait for the user's answer.
+5. Use current code and execution records to distinguish correct, incorrect, and missing points.
+6. If incorrect, explain with a small counterexample and ask the user to try again in their own words.
 
-사실이 아닌 작업·테스트·장애·사람의 개입을 답변에 넣도록 유도하지 않는다.
-선택 이유가 기록에 없으면 사용자에게 실제 이유를 묻거나 '현재 코드에서 확인한 동작'만 말한다.
-AI가 모든 코드를 작성했다는 사실만으로 이해 부족이라고 단정하지 않는다.
+Never encourage fabricated work, tests, failures, or human intervention.
+If a design reason is not recorded, ask for the real reason or describe only behavior confirmed in current code.
+Do not infer lack of understanding solely because AI wrote all the code.

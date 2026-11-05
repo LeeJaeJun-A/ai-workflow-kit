@@ -3,12 +3,18 @@
 요구사항을 읽고, 사람이 중요한 설계를 결정한 뒤, AI로 구현·검증하는 범용 Markdown 작업 템플릿입니다.
 완성된 서비스, 특정 과제의 해답, 실제 데이터, 외부 모델 호출, 설치 스크립트는 포함하지 않습니다.
 
+## 언어 정책
+
+AI가 읽는 지침과 복사해서 쓰는 프롬프트는 영어로 작성했습니다.
+답변·질문·진행 보고는 한국어로 받으며, 코드·식별자·기술 산출물은 프로젝트 요구가 없으면 영어를 사용합니다.
+영어와 한국어 작업 이름을 모두 쓸 수 있습니다. 사용자용 설명은 한국어로 유지합니다.
+
 ## 빠른 시작
 
 허용된 방식으로 프로젝트 작업 공간의 별도 `ai-workflow-kit/` 폴더에 가져온 뒤 다음처럼 요청합니다.
 
 ```text
-ai-workflow-kit/START.md를 읽고 과제 README 기준으로 분석만 해.
+Read ai-workflow-kit/START.md and analyze only, using the actual task README.
 ```
 
 과제의 README와 이 저장소의 README를 혼동하지 않도록, 과제 파일의 위치를 먼저 확인하게 합니다.
@@ -19,10 +25,10 @@ ai-workflow-kit/START.md를 읽고 과제 README 기준으로 분석만 해.
 
 | 말할 내용 | 동작 |
 |---|---|
-| `구현. [내가 승인한 핵심 선택]` | 승인된 설계로 작은 기능 구현 → 테스트 → 수정 → 재검증 |
-| `검증.` | 요구사항·계산·실행·화면 연결을 점검. 기본적으로 코드 수정은 하지 않음 |
-| `이해.` | 실제 코드에 근거한 질문 하나. 먼저 답을 보여주지 않음 |
-| `마감.` | 제출 형식, 실행 가능 여부, 미해결 사항 확인. 제출 자체는 하지 않음 |
+| `build. [approved key choices]` / `구현` | 승인된 설계로 작은 기능 구현 → 테스트 → 수정 → 재검증 |
+| `verify` / `검증` | 요구사항·계산·실행·화면 연결을 점검. 기본적으로 코드 수정은 하지 않음 |
+| `understand` / `이해` | 실제 코드에 근거한 질문 하나. 먼저 답을 보여주지 않음 |
+| `finish` / `마감` | 제출 형식, 실행 가능 여부, 미해결 사항 확인. 제출 자체는 하지 않음 |
 
 큰 설계 변경이 없으면 모든 소소한 코딩 작업마다 승인을 요청하지 않습니다.
 다만 데이터 의미·목표·필수 제약·핵심 알고리즘 변경은 사람이 확인합니다.
@@ -38,57 +44,57 @@ ai-workflow-kit/START.md를 읽고 과제 README 기준으로 분석만 해.
 분석에서 제안한 중요한 선택을 정하고, 이번에 어디까지 동작해야 하는지 적습니다.
 
 ```text
-구현.
-핵심 선택은 네가 제안한 A안으로 할게.
-이번에는 파일 업로드 → 데이터 처리 → 결과 표시까지 구현해.
-실제 입력 하나로 전체 흐름이 동작하고 관련 테스트가 통과하면 완료야.
-실패하면 원인을 확인하고 수정·재검증까지 진행해.
+build.
+Use option A from your analysis as my approved key choice.
+Implement file upload → data processing → result display.
+Complete when one real input works end to end and relevant tests pass.
+If tests fail, identify the cause, fix it, and reverify.
 ```
 
 ### 2. 구현 결과 검증과 문제 수정
 
 ```text
-검증.
-README의 필수 요구사항과 현재 구현을 대조해.
-정상 입력과 주요 경계값을 실제로 확인하고,
-실패는 재현 입력·기대값·실제값·코드 위치로 보고해.
-소스코드는 수정하지 마.
+verify.
+Compare the actual README's essential requirements with the current implementation.
+Run normal-input and important boundary cases.
+Report failures with reproduction input, expected/actual results, and code location.
+Do not edit source code.
 ```
 
 문제가 발견되면 수정 범위를 지정해 이어갑니다.
 
 ```text
-구현.
-방금 검증에서 발견한 문제를 수정해.
-최초 실패 사례와 관련 회귀 테스트를 다시 실행해.
+build.
+Fix the issues found in the latest verification.
+Rerun the original failures and relevant regression tests.
 ```
 
 ### 3. 필요한 기능 추가
 
 ```text
-구현.
-결과 목록에 검색과 정렬을 추가해.
-검색 후에도 정렬이 유지되고, 결과가 없으면 안내가 표시되게 해.
-기존 계산 결과는 유지해.
+build.
+Add search and sorting to the result list.
+Keep sorting after search and show a message when no results match.
+Preserve existing calculation results.
 ```
 
 ### 4. 실제 코드 이해
 
 ```text
-이해.
-핵심 데이터 처리 흐름부터 짚어줘.
-실제 코드에 근거한 질문을 하나씩 하고,
-내 답을 들은 뒤 빠진 부분을 설명해.
+understand.
+Start with the core data-processing flow.
+Ask one question at a time based on actual code.
+After my answer, explain missing points.
 ```
 
 ### 5. 마감 점검
 
 ```text
-마감.
-남은 시간은 20분이야.
-필수 기능 누락, 실행 오류, 제출 형식을 확인해.
-치명적인 문제가 있으면 승인된 범위에서 최소 수정하고 재검증해.
-제출할 파일과 미완료·미검증 항목을 알려줘.
+finish.
+Remaining time: 20 minutes.
+Check missing essential features, execution errors, and submission format.
+Make minimal fixes for critical issues within approved scope and reverify.
+List files to submit and incomplete/unverified items.
 ```
 
 일반적인 순서는 **분석 → 선택하고 구현 → 검증 → 문제 수정 → 마감**입니다.
@@ -135,13 +141,13 @@ ai-workflow-kit/
 `skills/`를 특정 프로젝트 아래에 내려받았다고 Codex가 자동으로 발견한다고 가정하지 않습니다.
 
 ```text
-ai-workflow-kit/skills/data-audit/SKILL.md를 읽고 제공 데이터만 점검해.
-원본은 바꾸지 마.
+Read ai-workflow-kit/skills/data-audit/SKILL.md and inspect only the supplied data.
+Do not change original inputs.
 ```
 
 ```text
-ai-workflow-kit/skills/ui-review/SKILL.md 기준으로 현재 UI 코드를 검토해.
-브라우저를 자동 조작하지 말고, 필요한 수동 확인 절차를 알려줘.
+Review the current UI code using ai-workflow-kit/skills/ui-review/SKILL.md.
+Do not automate the browser. Provide any necessary manual verification steps.
 ```
 
 현재 일반 Codex의 정식 스킬 등록 경로는 프로젝트의 `.agents/skills/<skill-name>/SKILL.md` 등입니다.

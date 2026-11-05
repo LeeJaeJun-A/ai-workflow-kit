@@ -1,15 +1,15 @@
-# 마감: 완료 상태와 제출 전 확인
+# Finish: Completion and Submission Readiness
 
-RULES.md를 따른다. 새 기능 추가나 전면 리팩터링을 시작하지 않는다.
+Follow RULES.md, including its language policy. Do not start new features or broad refactoring.
 
-1. README의 제출 경로·형식·필수 기능과 산출물을 대조한다.
-2. 실행 방법과 필요한 의존성을 확인한다. 제공 환경에서 실제로 확인한 명령만 기록한다.
-3. workflows/verify.md를 참고해 핵심 회귀 검증을 수행한다.
-4. 파일·화면·다운로드 결과가 같은 계산을 사용하는지 확인한다.
-5. 미검증 항목, 남은 오류, 추정치, 데이터 가정을 짧게 정리한다.
-6. 핵심 동작/설계/검증에 대해 사용자가 설명하지 못하는 부분 하나만 우선 확인한다.
-7. 무엇을 어디에 제출해야 하는지 사용자에게 알려준다. 제출 완료 여부는 실제 플랫폼 결과로 확인해야 한다.
+1. Compare deliverables against the actual README's submission paths, formats, and essential features.
+2. Check run instructions and dependencies. Record only commands actually verified in the supplied environment.
+3. Perform core regression checks using workflows/verify.md.
+4. Verify files, screens, and downloads use the same calculations.
+5. Briefly list unverified items, remaining errors, estimates, and data assumptions.
+6. Prioritize one core behavior/design/verification point the user cannot yet explain.
+7. Tell the user what to submit and where. Submission completion requires actual platform evidence.
 
-자동 제출, 원격 배포, 외부 업로드, Git Push를 하지 않는다.
-사용자 대신 사후 평가 답안을 만들지 않는다.
-미완료·실패를 숨기거나 검증 로그를 성공으로 바꾸지 않는다.
+Do not automatically submit, deploy remotely, upload externally, or push to Git.
+Do not write post-task assessment answers for the user.
+Do not hide incomplete work or failures, or rewrite failed verification logs as successes.

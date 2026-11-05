@@ -3,29 +3,29 @@ name: local-data-audit
 description: Inspect local tabular inputs, row meaning, keys, units, missingness, duplicates and join integrity before implementation. Do not use to silently clean data, build a full app, or send records to external services.
 ---
 
-# 로컬 데이터 점검
+# Local Data Audit
 
-이 키트의 RULES.md와 실제 요구사항을 우선한다. 원본을 읽기 전용으로 취급한다.
-문서에 없는 업무 의미를 통계적 패턴만으로 확정하지 않는다.
+Follow this kit's RULES.md, including its language policy, and the actual requirements. Treat original inputs as read-only.
+Do not infer undocumented business meaning solely from statistical patterns.
 
-## 절차
+## Procedure
 
-1. 제공 자료 목록과 실제로 읽을 파일 범위를 확인한다.
-2. 시트/테이블마다 한 행의 의미, 주요 열, 단위, 식별자, 다른 표와의 연결 관계를 설명한다.
-3. 읽기 방식과 범위를 결정한다. 모든 시트를 무조건 읽거나 첫 시트만 읽지 않는다. 이유를 남긴다.
-4. 행 수, 결측, 중복 후보, 자료형 불일치, 범위 위반, 키 누락을 실제로 계산한다.
-5. 조인이 있다면 조인 전후 행 수, 미매칭 키, 예상치 못한 다대다 증식을 확인한다.
-6. ID의 앞자리 0, 빈 값과 0, 날짜/시간, 수량과 단위를 구분한다.
-7. 보정/삭제가 필요하면 작은 변경 전후 예시와 결과 영향을 보여준다. 승인 없이 의미를 바꾸지 않는다.
-8. 필요한 테스트와 미확정 업무 질문을 정리한다.
+1. Confirm supplied materials and the actual files to inspect.
+2. For each sheet/table, describe row meaning, key columns, units, identifiers, and relationships to other tables.
+3. Choose and justify reading method and scope. Do not always read every sheet or only the first sheet.
+4. Actually calculate row counts, missingness, potential duplicates, type mismatches, range violations, and missing keys.
+5. For joins, check before/after row counts, unmatched keys, and unexpected many-to-many expansion.
+6. Distinguish leading zeros in IDs, empty values versus zero, dates/times, quantities, and units.
+7. If correction/deletion is needed, show small before/after examples and result impact. Do not change meaning without approval.
+8. List necessary tests and unresolved business questions.
 
-## 출력
+## Output
 
-- 입력 계약: 출처, 행의 의미, 키, 단위, 읽기 방식.
-- 실제 확인한 문제와 영향. 문제 없음을 주장하려면 점검 범위를 명시한다.
-- 사람이 결정할 보정/삭제 정책과 대안. 최대 3개로 우선순위를 둔다.
-- 핵심 합계·행 수·키 보존 등을 확인할 작은 검증 사례.
+- Input contract: source, row meaning, keys, units, and reading method.
+- Observed issues and impact. State inspection scope before claiming no issues were found.
+- Human decisions on correction/deletion policies and alternatives, prioritized to at most three.
+- Small verification cases for core totals, row counts, key preservation, and similar invariants.
 
-무조건 fillna(0), dropna(), drop_duplicates()를 적용하지 않는다.
-자동 웹 업로드·외부 분석 서비스·외부 AI 호출을 하지 않는다.
-이 문서는 절차다. 라이브러리가 설치되어 있거나 특정 파일 형식이 항상 읽힌다고 보장하지 않는다.
+Do not blindly apply fillna(0), dropna(), or drop_duplicates().
+Do not upload to the web, use external analysis services, or call external AI.
+This is a procedure, not a guarantee that libraries are installed or that a file format can always be read.

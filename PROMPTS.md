@@ -1,6 +1,8 @@
 # 시험 중 바로 쓰는 프롬프트
 
 `ai-workflow-kit/`은 실제 키트 경로로, 대괄호 부분은 현재 작업의 값으로 바꾼다.
+복사할 요청문은 영어이며, 사용자에게 보여주는 답변·질문·진행 보고는 한국어로 받습니다.
+독립 실행과 새 세션에서도 RULES.md의 언어 지침을 따릅니다.
 모델 추천은 [MODEL_GUIDE.md](MODEL_GUIDE.md)의 시험용 시작값이다. 실제 모델·사고 수준은 선택 UI에서 설정한다.
 사용 가능한 모델은 Sol 6.1, Terra 5.6, Luna 6, Sol 6.0이다.
 
@@ -10,82 +12,83 @@
 START.md로 시작한 세션은 공통 원칙을 통해 이 규칙을 함께 읽는다.
 
 ```text
-ai-workflow-kit/MODEL_GUIDE.md를 읽어.
-각 작업을 시작하거나 난도가 바뀔 때 추천 모델·사고 수준·이유를 한 줄로 알려줘.
-후보는 Sol 6.1, Terra 5.6, Luna 6, Sol 6.0으로 한정해.
-현재 설정을 확인할 수 없으면 미확인이라고 쓰고, 추천 때문에 승인된 작업을 멈추지 마.
-설정을 실제로 바꿨다고 말하지 말고, Extra High가 필요한 경우에만 이유를 설명해.
+Read ai-workflow-kit/MODEL_GUIDE.md.
+At task start or when difficulty changes, give one Korean line with the recommended model, reasoning level, and reason.
+Limit candidates to Sol 6.1, Terra 5.6, Luna 6, and Sol 6.0.
+If current settings cannot be verified, mark them unconfirmed. Do not pause approved work for recommendations.
+Do not claim settings changed. Explain Extra High only when needed.
+Use Korean for user-facing answers, questions, progress updates, and reports; keep them concise.
 ```
 
 모델 선택만 먼저 받고 싶을 때:
 
 ```text
-ai-workflow-kit/MODEL_GUIDE.md 기준으로 다음 작업에 쓸 모델과 사고 수준만 추천해.
-작업: [작업 내용]
-남은 시간: [N분 또는 모름]
-현재 설정: [모델 / 사고 수준 또는 모름]
-추천 조합 하나, 이유 한 문장, 더 높은 사고 수준이 필요한 조건 하나만 말해.
+Using ai-workflow-kit/MODEL_GUIDE.md, recommend only a model and reasoning level for this task.
+Task: [task description]
+Remaining time: [N minutes or unknown]
+Current settings: [model / reasoning level or unknown]
+In Korean, give one combination, one sentence explaining why, and one condition for a higher reasoning level.
 ```
 
 ## 2. 시험 시작 — Sol 6.1 / High
 
 ```text
-ai-workflow-kit/START.md를 읽고 [실제 과제 README 경로] 기준으로 분석만 해.
-남은 시간은 [N분]이다. 작업에 맞는 모델·사고 수준도 한 줄로 추천해.
-필수 요구사항 → 완료 조건 → 검증 방법을 정리하고,
-입력부터 최종 출력까지 연결되는 최소 구현과 작업 순서를 제안해.
-공개된 배점이 있으면 반영하고, 없으면 배점을 추측하지 마.
-검증·제출 준비 시간을 남기고, 중요한 결정만 최대 3개 물어봐.
+Read ai-workflow-kit/START.md and analyze only, using [actual task README path].
+Remaining time: [N minutes]. Recommend a model and reasoning level in one line.
+Map essential requirements → completion criteria → verification methods.
+Propose a minimal implementation from input to final output and the work order.
+Use published scoring criteria if available; do not invent them.
+Reserve time for verification and submission preparation. Ask at most three important decision questions.
 ```
 
 ## 3. 승인한 기능 구현 — Sol 6.1 / 보통
 
 ```text
-ai-workflow-kit/workflows/build.md를 읽고 구현해.
-내가 승인한 핵심 선택: [선택과 범위]
-이번 완료 조건: [입력부터 출력까지 확인할 동작]
-기존 스택으로 작은 동작부터 연결하고 실제 테스트 → 최소 수정 → 재검증까지 진행해.
-여러 모듈의 계약이나 핵심 계산이 얽혀 High가 유리해지면 한 줄로 추천해.
+Read ai-workflow-kit/workflows/build.md and implement.
+My approved key choices: [decisions and scope]
+Completion criteria for this step: [behavior to verify from input to output]
+Use the existing stack to connect a small working flow, then run real tests → make minimal fixes → reverify.
+Recommend High in one line if module contracts or core calculations make it useful.
 ```
 
 ## 4. 오류가 반복될 때 — Sol 6.1 / High
 
 ```text
-ai-workflow-kit/RULES.md를 따르고 승인된 범위에서 이 오류를 재현하고 고쳐.
-오류 또는 실패 사례: [관련 정보나 로컬 파일 경로]
-최소 재현 입력과 실행 명령을 확보하고, 원인 가설을 최대 3개 세워.
-가설을 구분할 확인부터 하고 근거가 있는 부분만 최소 수정해.
-최초 실패 사례와 관련 회귀 테스트를 다시 실행해.
-재현하지 못하면 추측으로 바꾸지 말고 부족한 근거를 밝혀.
-Extra High 추천은 근거가 충분한데도 어려운 논리 문제가 남을 때만 해.
+Follow ai-workflow-kit/RULES.md. Reproduce and fix this error within the approved scope.
+Error or failing case: [relevant details or local file path]
+Establish minimal reproduction input and command. Form at most three cause hypotheses.
+First run checks that distinguish the hypotheses; make minimal changes supported by evidence.
+Rerun the original failure and relevant regression tests.
+If you cannot reproduce it, report missing evidence rather than making speculative changes.
+Recommend Extra High only if sufficient evidence still leaves a difficult reasoning problem.
 ```
 
 ## 5. 반례와 결과 검증 — Sol 6.1 / High
 
 ```text
-ai-workflow-kit/workflows/verify.md를 읽고 검증해. 소스코드는 수정하지 마.
-요구사항에서 기대 결과를 정하고 현재 구현이 틀릴 수 있는 반례를 찾아.
-문제에 해당하는 경계값·빈 입력·중복·순서 변경·해 없음 등을 골라 확인해.
-핵심 계산은 작은 수작업 사례나 별도의 단순 계산으로 대조해.
-실패는 재현 입력, 기대값, 실제값, 관련 코드 위치로 보고해.
-실행하지 못한 항목은 미확인으로 남겨.
+Read ai-workflow-kit/workflows/verify.md and verify. Do not edit source code.
+Derive expected results from requirements and find counterexamples that could break the implementation.
+Select relevant boundary, empty-input, duplicate, reordered-input, and no-solution cases.
+Cross-check core calculations using small manual examples or separate simple calculations.
+Report failures with reproduction input, expected result, actual result, and code location.
+Leave unexecuted checks marked unverified.
 ```
 
 ## 6. 새 세션에서 이어가기 — Sol 6.1 / 보통
 
 ```text
-ai-workflow-kit/RULES.md와 [실제 로컬 상태 기록 경로]를 읽어.
-너의 역할은 [메인 구현 / 읽기 중심 검토]다.
-요구사항·승인된 선택·현재 코드·실행 기록을 대조하고, 오래된 기록을 사실로 가정하지 마.
-일치하면 승인된 범위의 다음 작업을 이어가고, 중요한 충돌이 있으면 해당 선택만 확인해.
-처음부터 전체를 다시 설계하지 마. 추천 모델·사고 수준을 한 줄로 알려줘.
+Read ai-workflow-kit/RULES.md and [actual local state record path].
+Your role: [main implementation / read-focused review].
+Compare requirements, approved choices, current code, and execution records. Do not assume old records are accurate.
+If consistent, continue the next approved task. If there is an important conflict, confirm only the affected decision.
+Do not redesign everything from scratch. Recommend a model and reasoning level in one line.
 ```
 
 ## 7. 마감 직전 — Sol 6.1 / 보통, 정확성 문제는 High
 
 ```text
-ai-workflow-kit/workflows/finish.md를 읽고 마감 점검해. 남은 시간은 [N분]이다.
-필수 기능 누락, 실행 실패, 잘못된 결과, 제출 형식 오류 순으로 확인해.
-승인된 범위의 치명적인 문제는 최소 수정하고 핵심 검증을 재실행해.
-새 기능과 큰 리팩터링은 보류하고, 미완료·미검증 항목과 제출할 파일을 정확히 알려줘.
+Read ai-workflow-kit/workflows/finish.md and check submission readiness. Remaining time: [N minutes].
+Prioritize missing essential features, execution failures, incorrect results, then submission format errors.
+Make minimal fixes for critical issues within approved scope and rerun core verification.
+Defer new features and large refactors. Identify incomplete/unverified items and exact files to submit.
 ```

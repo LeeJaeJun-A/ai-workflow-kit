@@ -1,28 +1,30 @@
-# 검증: 요구사항, 계산, 실행, 표시
+# Verify: Requirements, Calculations, Execution, and Display
 
-RULES.md를 따른다. 기본적으로 소스코드와 원본 데이터는 수정하지 않는다.
-테스트가 생성하는 임시 파일·캐시·로컬 결과는 허용 범위에서만 만든다.
-검증을 실행할 수 없으면 그 이유와 미확인 범위를 밝힌다.
+Follow RULES.md, including its language policy. Default: do not edit source code or original data.
+Create test-generated temporary files, caches, and local results only within permitted scope.
+If verification cannot run, explain why and identify the unverified scope.
 
-## 순서
+## Procedure
 
-1. README의 필수 요구사항과 현재 구현을 대조한다.
-2. 검증 명령의 부작용을 확인한 뒤 기존 테스트·빌드·작은 재현 사례를 실행한다.
-3. 입력 파싱과 변환을 확인한다. 필요한 경우 ../skills/data-audit/SKILL.md를 참고한다.
-4. 중요한 계산을 작은 독립 사례로 대조한다. 합계·단위·분모·제약·비교 조건을 확인한다.
-5. 정상, 경계, 잘못된 입력, 해/결과가 없는 경우를 점검한다. 해당하지 않는 항목은 제외 이유를 밝힌다.
-6. 데이터 보존과 UI 연결을 확인한다. 코드 검토만으로 브라우저 동작을 확인했다고 하지 않는다.
-7. 자동 UI 조작이 허용되지 않으면 사용자가 직접 할 순서와 기대 결과를 적는다.
+1. Compare essential requirements in the actual README with the current implementation.
+2. Check command side effects, then run existing tests, builds, and small reproductions.
+3. Check input parsing and transformation. Consult ../skills/data-audit/SKILL.md when relevant.
+4. Cross-check important calculations with small independent examples: totals, units, denominators, constraints, and comparison conditions.
+5. Check normal, boundary, invalid-input, and no-solution/no-result cases. Explain exclusions.
+6. Check data preservation and UI integration. Code review alone does not confirm browser behavior.
+7. If automated UI operation is prohibited, provide manual steps and expected results for the user.
 
-## 출력
+## Report
 
-| 요구사항/위험 | 방법/명령 | 기대 결과 | 실제 결과/근거 | 상태 |
+Use Korean for the report, including table headings and status labels.
+
+| Requirement/risk | Method/command | Expected result | Actual result/evidence | Status |
 |---|---|---|---|---|
-| 실제 항목만 작성 | 실행한 방법 | 요구사항 근거 | 실제 출력 | 확인/실패/미확인 |
+| Actual item only | Method executed | Requirements basis | Observed output | Confirmed/failed/unverified |
 
-- 실패는 재현 입력, 실제 결과, 기대 결과, 관련 파일/함수, 영향으로 정리한다.
-- 수정이 필요하면 메인 구현 세션에 최소 수정안을 전달한다.
-- 수정 후에는 최초 실패 사례와 회귀 테스트를 다시 실행해야 한다.
-- 테스트 통과가 전체 정확성이나 전역 최적성을 보장한다고 표현하지 않는다.
-- 코드가 반환한 수치를 그대로 다시 읽는 것은 독립적인 계산 검증이 아니다.
-- 사람이 화면을 확인하지 않았다면 수동 확인 완료로 표시하지 않는다.
+- Report failures with reproduction input, actual/expected results, relevant files/functions, and impact.
+- If a fix is needed, pass the smallest proposed change to the main implementation session.
+- After a fix, rerun the original failure and regression tests.
+- Do not claim passing tests guarantee complete correctness or global optimality.
+- Rereading numbers returned by the code is not independent calculation verification.
+- Do not mark manual screen checks complete unless a person actually performed them.

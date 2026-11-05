@@ -1,34 +1,38 @@
-# 로컬 작업 상태 — 빈 양식
+# Local Work State — Blank Template
 
-이 파일은 공개용 빈 양식이다. 실제 내용을 이 공개 키트에 채워 넣지 않는다.
-기록이 허용되는 작업 공간의 별도 로컬 파일에 필요할 때만 복사한다.
-필요한 내용만 간결히 쓰고, 외부로 전송하거나 공개 저장소에 Push하지 않는다.
+This is a public blank template. Do not populate it with actual task details in this public kit.
+Copy it to a separate local file in a workspace where records are permitted, only when needed.
+Keep records concise. Do not transmit them externally or push them to a public repository.
+Follow RULES.md's language policy; write technical records in English and user-facing reports in Korean.
 
-## 기준
-- 실제 요구사항 문서 경로:
-- 적용되는 지침/제약:
-- 마지막으로 코드와 대조한 시점:
-- 구현 책임 세션 / 검토 세션:
+## Baseline
+- Actual requirements document path:
+- Applicable instructions/constraints:
+- Last comparison against current code:
+- Implementation owner session / review session:
 
-## 요구사항과 검증
-| 요구사항 근거 | 완료 조건 | 관련 파일/함수 | 실제 검증 근거 | 상태 |
+## Requirements and Verification
+
+| Requirements source | Completion criteria | Related files/functions | Actual verification evidence | Status |
 |---|---|---|---|---|
-| 미기입 | 미기입 | 미기입 | 미기입 | 미확인 |
+| Unfilled | Unfilled | Unfilled | Unfilled | Unverified |
 
-## 중요한 선택
-| 결정 대상 | AI 제안 | 사용자가 실제 선택한 내용/이유 | 구현 반영 위치 | 한계 |
+## Important Decisions
+
+| Decision | AI proposal | User's actual choice/reason | Implementation location | Limits |
 |---|---|---|---|---|
-| 미기입 | 미기입 | 미승인 | 미기입 | 미기입 |
+| Unfilled | Unfilled | Not approved | Unfilled | Unfilled |
 
-## 실패와 재검증
-| 재현 조건 | 기대/실제 차이 | 원인 | 변경 | 동일 사례 재실행/회귀 결과 |
+## Failures and Reverification
+
+| Reproduction conditions | Expected/actual difference | Cause | Change | Same-case rerun/regression result |
 |---|---|---|---|---|
-| 미기입 | 미기입 | 미확인 | 미변경 | 미실행 |
+| Unfilled | Unfilled | Unconfirmed | Unchanged | Not run |
 
-## 이어서 할 일
-- 다음 작업:
-- 미확정 업무 조건:
-- 실행하지 못한 검증:
-- 사용자가 아직 설명하지 못한 부분:
+## Next Steps
+- Next task:
+- Unresolved business conditions:
+- Verification not run:
+- Points the user cannot yet explain:
 
-기록의 '미확인/미승인/미실행'을 근거 없이 완료 상태로 바꾸지 않는다.
+Never change unverified/unapproved/not-run states to complete without evidence.
