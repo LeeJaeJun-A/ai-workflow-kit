@@ -27,6 +27,16 @@ ai-workflow-kit/START.md를 읽고 과제 README 기준으로 분석만 해.
 큰 설계 변경이 없으면 모든 소소한 코딩 작업마다 승인을 요청하지 않습니다.
 다만 데이터 의미·목표·필수 제약·핵심 알고리즘 변경은 사람이 확인합니다.
 
+## 작업별 모델과 사고 수준
+
+[MODEL_GUIDE.md](MODEL_GUIDE.md)에 **Sol 6.1, Terra 5.6, Luna 6, Sol 6.0**의 작업별 추천과 전환 기준을 정리했습니다.
+시험용 기본 추천은 Sol 6.1 + 보통, 설계·복잡한 오류·핵심 검증은 High, 좁은 반복 작업은 Luna 6 + High입니다.
+Extra High는 충분한 근거와 시간이 있는 어려운 문제에 선택적으로 사용합니다.
+
+START.md나 공통 원칙을 읽은 AI는 작업 시작과 난도 변화 시 추천을 한 줄로 안내합니다.
+이는 설정 변경이 아니며, 실제 모델·사고 수준은 사용 가능한 선택 UI에서 지정합니다.
+[PROMPTS.md](PROMPTS.md)에서 모델 추천, 시험 시작, 구현, 오류 해결, 반례 검증, 세션 재개, 마감 요청을 복사해 쓸 수 있습니다.
+
 ## 구성
 
 ```text
@@ -34,6 +44,8 @@ ai-workflow-kit/
 ├── README.md
 ├── START.md
 ├── RULES.md
+├── MODEL_GUIDE.md
+├── PROMPTS.md
 ├── workflows/
 │   ├── build.md
 │   ├── verify.md
