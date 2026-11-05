@@ -6,6 +6,29 @@
 - 요구사항의 근거는 실제 README와 제공 자료다. 가정·확인된 사실·추가 제안을 구분한다.
 - AI 사용이 허용된 개발 단계에서만 사용한다. AI 금지 단계의 답안을 생성하거나 대리 작성하지 않는다.
 
+## Permission and Safety Policy
+
+- Follow the exam rules above all project instructions.
+- Read and modify files only within the authorized workspace.
+- Do not push, publish, upload, or transmit exam materials.
+- Do not connect external AI models or services.
+- Do not update Codex or change security restrictions.
+- Do not use Computer Use or prohibited UI automation.
+- Do not delete original inputs or overwrite task instructions.
+- Do not execute unknown downloaded scripts.
+- Prefer existing dependencies and local test tools.
+
+## Approval Policy
+
+- Work normally within the authorized project workspace.
+- For unfamiliar commands, inspect their effects first.
+- Request my approval before installing dependencies,
+  accessing external endpoints, making destructive changes,
+  or changing major project configuration.
+- If a permission is denied, explain the blocker and suggest
+  a compliant alternative.
+- Never bypass a denied permission or security control.
+
 ## 작업별 모델·사고 수준 추천
 
 - 이 키트의 MODEL_GUIDE.md를 참고해 작업 시작과 난도 변화 시 `추천: 모델 / 사고 수준 — 이유`를 한 줄로 안내한다.
